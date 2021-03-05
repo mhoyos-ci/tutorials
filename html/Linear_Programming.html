@@ -13694,7 +13694,8 @@ $$
 The model formulation is incorrect.
 The data is incorrect.
 The model and data are correct, but represent a real-world conflict in the system being modeled.</p>
-<p>When faced with an infeasible model, it's not always easy to identify the source of the infeasibility.</p>
+<p>When faced with an 
+    , it's not always easy to identify the source of the infeasibility.</p>
 <p>DOcplex helps you identify potential causes of infeasibilities, and it will also suggest changes to make the model feasible.</p>
 <h4 id="An-example-of-infeasible-problem">An example of infeasible problem<a class="anchor-link" href="#An-example-of-infeasible-problem">&#182;</a></h4><p><p></p>
 <ul>
@@ -13707,7 +13708,7 @@ The model and data are correct, but represent a real-world conflict in the syste
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Infeasible-models-in-DOcplex">Infeasible models in DOcplex<a class="anchor-link" href="#Infeasible-models-in-DOcplex">&#182;</a></h4><p>Calling <code>solve()</code> on an infeasible model returns None. Let's experiment this with DOcplex. First, we take a copy of our model and an extra infeasible constraint which states that desk telephone production must be greater than 1100</p>
+<h4 id="Infeasible-models-in-DOcplex">Infeasible models in DOcplex<a class="anchor-link" href="#Infeasible-models-in-DOcplex">&#182;</a></h4><p>Calling <code>solve()</code> on an infeasible model returns None. Let's experiment this with DOcplex. First, we take a copy of our model and add an extra infeasible constraint which states that desk telephone production must be greater than 1100</p>
 
 </div>
 </div>
@@ -13723,7 +13724,7 @@ The model and data are correct, but represent a real-world conflict in the syste
 <span class="n">idesk</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">get_var_by_name</span><span class="p">(</span><span class="s1">&#39;desk&#39;</span><span class="p">)</span>
 <span class="c1"># add a new (infeasible) constraint</span>
 <span class="n">im</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">idesk</span> <span class="o">&gt;=</span> <span class="mi">1100</span><span class="p">);</span>
-<span class="c1"># solve the new proble, we expect a result of None as the model is now infeasible</span>
+<span class="c1"># solve the new problem, we expect a result of None as the model is now infeasible</span>
 <span class="n">ims</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">ims</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- model is infeasible&#39;</span><span class="p">)</span>
